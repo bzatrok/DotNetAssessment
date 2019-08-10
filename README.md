@@ -1,9 +1,11 @@
 # DotNetAssessment
 Assessment to test .Net developers.
 
+## To start, please fork this repository and create a pull request with your code when you are finished!
+
 ## Introduction
 
-In order to evaluate your skills and coding style we would like you to develop a small .Net Framework application that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFull services.
+In order to evaluate your skills and coding style we would like you to develop a small .Net Framework application that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFull services. Please use .Net Framework and note .Net Core. You are free to use MVC or other design patters based on your personal preference. 
 
 ## Application
 
