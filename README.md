@@ -44,7 +44,7 @@ We would like to have a small application that accomplishes the following:
 
 > **Step 1: Get a key**
 
-> Before you can start using our APIs, you need an API key. It's easy. Just visit [GET API Key](https://remix.mashery.com/member/register) and sign up with your email address. 
+> Before you can start using our APIs, you need an API key. It's easy. Just visit [GET API Key](https://developer.bestbuy.com/login) and sign up with your email address. 
 We'll send you an email with instructions on how to activate your new key. 
 Once you've activated your key, you're ready to roll.
 
