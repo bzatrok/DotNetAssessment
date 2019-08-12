@@ -1,5 +1,5 @@
 # DotNetAssessment
-Assessment to test .Net developers.
+Assessment to test .Net developers. This is a simple project to assess how you structure a project and what kind of solutions you choose to general problems.
 
 ## What is the test about?
 
