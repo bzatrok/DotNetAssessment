@@ -16,6 +16,7 @@ namespace ProductApp.Controllers
     {
         private Utils.ApiIntegration api = new Utils.ApiIntegration();
         private string totalPages = "";
+        private string currentPage = "";
 
         public ActionResult Index()
         {         
@@ -26,11 +27,13 @@ namespace ProductApp.Controllers
             }
 
             totalPages = api.GetProductPagesCount(products);
+            currentPage = api.GetCurrentPageNumber(products);
             List<ProductsModel> productsList = api.CastProducts(products);
 
             HomeViewModel model = new HomeViewModel {
                 products = productsList,
-                pagesCount = totalPages
+                pagesCount = int.Parse(totalPages),
+                pageNumber = int.Parse(currentPage)
             };
 
             return View(model);

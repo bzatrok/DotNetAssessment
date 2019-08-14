@@ -9,6 +9,7 @@ namespace ProductApp.ViewModels
     public class HomeViewModel
     {
         public List<ProductsModel> products { get; set; }
-        public string pagesCount { get; set; }
+        public int pagesCount { get; set; }
+        public int pageNumber { get; set; }
     }
 }

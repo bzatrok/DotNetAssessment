@@ -24,6 +24,13 @@ namespace ProductApp.Utils
         /// <returns> A string with the value. </returns>
         string GetProductPagesCount(JObject products);
 
+        // <summary>
+        /// Gets the current page number.
+        /// </summary>
+        /// <param name="products">A JSON object with api response.</param>
+        /// <returns> A string with the value. </returns>
+        string GetCurrentPageNumber(JObject products);
+
         /// <summary>
         /// Casts products into a list of ProductsModel objects.
         /// </summary>

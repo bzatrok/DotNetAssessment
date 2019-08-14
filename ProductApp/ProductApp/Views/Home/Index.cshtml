@@ -7,23 +7,46 @@
 
 <div id="productsPage">
     <ul id="productsList">
-    @foreach (var product in Model.products)
-    {
-        <li class="productItem">
-            <img class="productThumb" src="@product.Thumbnail" alt="Product Thumbnail" width="150" height="150">
-            <p class="productName">@product.Name</p>
+        @foreach (var product in Model.products)
+        {
+            <li class="productItem">
+                <img class="productThumb" src="@product.Thumbnail" alt="Product Thumbnail" width="150" height="150">
+                <p class="productName">@product.Name</p>
 
-            @{
-                string priceClass = (product.RegularPrice == product.SalePrice) ? "regularPrice" : "discountPrice";
-            }
+                @{
+                    string priceClass = (product.RegularPrice == product.SalePrice) ? "regularPrice" : "discountPrice";
+                }
 
-            <p class="@priceClass">@product.RegularPrice</p>
+                <p class="@priceClass">@product.RegularPrice</p>
 
-            @if(priceClass == "discountPrice")
-            {
-                <p class="newPrice">@product.SalePrice</p>
-            }
-        </li>
-    }
+                @if (priceClass == "discountPrice")
+                {
+                    <p class="newPrice">@product.SalePrice</p>
+                }
+            </li>
+        }
     </ul>
 </div>
+
+<div class="pagination">
+    <a href="#" class="previous">&laquo;</a>
+    @for (var i = 1; i < Model.pagesCount + 1; i++)
+    {
+        if (Model.pageNumber == i)
+        {
+            <a href="#" class="active">@i</a>
+        }
+        else
+        {
+            <a href="#">@i</a>
+        }
+    }
+    <a href="#" class="next">&raquo;</a>
+</div>
+
+<script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });
+</script>
