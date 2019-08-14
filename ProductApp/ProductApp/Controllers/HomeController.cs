@@ -28,7 +28,10 @@ namespace ProductApp.Controllers
             totalPages = api.GetProductPagesCount(products);
             List<ProductsModel> productsList = api.CastProducts(products);
 
-            HomeViewModel model = new HomeViewModel();
+            HomeViewModel model = new HomeViewModel {
+                products = productsList,
+                pagesCount = totalPages
+            };
 
             return View(model);
         }

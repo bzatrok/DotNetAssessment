@@ -1,6 +1,29 @@
 ﻿@model ProductApp.ViewModels.HomeViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Products Page";
 }
 
-<h1>Hello World!</h1>
+<h1>@ViewBag.Title</h1>
+
+<div id="productsPage">
+    <ul id="productsList">
+    @foreach (var product in Model.products)
+    {
+        <li class="productItem">
+            <img class="productThumb" src="@product.Thumbnail" alt="Product Thumbnail" width="150" height="150">
+            <p class="productName">@product.Name</p>
+
+            @{
+                string priceClass = (product.RegularPrice == product.SalePrice) ? "regularPrice" : "discountPrice";
+            }
+
+            <p class="@priceClass">@product.RegularPrice</p>
+
+            @if(priceClass == "discountPrice")
+            {
+                <p class="newPrice">@product.SalePrice</p>
+            }
+        </li>
+    }
+    </ul>
+</div>
