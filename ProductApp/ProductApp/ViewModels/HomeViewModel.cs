@@ -11,5 +11,6 @@ namespace ProductApp.ViewModels
         public List<ProductsModel> products { get; set; }
         public int pagesCount { get; set; }
         public int pageNumber { get; set; }
+        public string keyword { get; set; }
     }
 }

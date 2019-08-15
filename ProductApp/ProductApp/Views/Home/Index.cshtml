@@ -5,6 +5,17 @@
 
 <h1>@ViewBag.Title</h1>
 
+<div id="searchBar">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "searchForm" }))
+    {
+    <p>
+        @Html.Hidden("pageNumber", "1")
+        Keyword: @Html.TextBox("keyword")<br />
+        <input type="submit" value="Search" />
+    </p>
+    }
+</div>
+
 <div id="productsPage">
     <ul id="productsList">
         @foreach (var product in Model.products)
@@ -17,11 +28,11 @@
                     string priceClass = (product.RegularPrice == product.SalePrice) ? "regularPrice" : "discountPrice";
                 }
 
-                <p class="@priceClass">@product.RegularPrice</p>
+                <p class="@priceClass">Price: @product.RegularPrice</p>
 
                 @if (priceClass == "discountPrice")
                 {
-                    <p class="newPrice">@product.SalePrice</p>
+                    <p class="newPrice">New Price: @product.SalePrice</p>
                 }
             </li>
         }
@@ -55,6 +66,7 @@
         $("#light-pagination").pagination({
             pages: @Model.pagesCount,
             hrefTextPrefix: "/home/index/",
+            hrefTextSuffix: "/@Model.keyword",
             displayedPages: 8,
             currentPage: @Model.pageNumber,
             cssStyle: 'light-theme'

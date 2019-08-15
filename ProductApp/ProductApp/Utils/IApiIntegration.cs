@@ -12,14 +12,22 @@ namespace ProductApp.Utils
     interface IApiIntegration
     {
         /// <summary>
-        /// Gets all products from the api
+        /// Gets all products from the api.
         /// </summary>
         /// <param name="pageNumber">The number of the currently displayed page.</param>
         /// <returns> A JSON object with api response. </returns>
         JObject GetProducts(string pageNumber);
 
         /// <summary>
-        /// Gets the count of the pages with product results
+        /// Gets all products from the api which match a keyword.
+        /// </summary>
+        /// <param name="pageNumber">The number of the currently displayed page.</param>
+        /// <param name="keyword">The keyword to match products to.</param>
+        /// <returns> A JSON object with api response. </returns>
+        JObject GetProducts(string pageNumber, string keyword);
+
+        /// <summary>
+        /// Gets the count of the pages with product results.
         /// </summary>
         /// <param name="products">A JSON object with api response.</param>
         /// <returns> A string with the value. </returns>

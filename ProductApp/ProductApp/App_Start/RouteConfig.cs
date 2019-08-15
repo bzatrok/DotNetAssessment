@@ -21,8 +21,8 @@ namespace ProductApp
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{pageNumber}",
-                defaults: new { controller = "Home", action = "Index", pageNumber = UrlParameter.Optional }
+                url: "{controller}/{action}/{pageNumber}/{keyword}",
+                defaults: new { controller = "Home", action = "Index", pageNumber = UrlParameter.Optional, keyword = UrlParameter.Optional }
             );
         }
     }

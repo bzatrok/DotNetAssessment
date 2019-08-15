@@ -44,6 +44,30 @@ namespace ProductApp.Utils
         }
 
         /// <inheritdoc/>
+        public JObject GetProducts(string pageNumber, string keyword)
+        {
+            using (var client = new HttpClient())
+            {
+                // Working query: https://api.bestbuy.com/v1/products((search={keyword}))?apiKey=ExFNlAkCTKUdHusuItIv7oA4&page={pageNumber}&format=json
+
+                string baseAddress = $"https://api.bestbuy.com/v1/products((search={keyword}))?apiKey=ExFNlAkCTKUdHusuItIv7oA4&page={pageNumber}&format=json";
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = client.GetAsync(baseAddress).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<JObject>(result);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <inheritdoc/>
         public string GetProductPagesCount(JObject products)
         {
             return products["totalPages"].ToString();

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Caching;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProductApp.Models;
@@ -17,15 +18,38 @@ namespace ProductApp.Controllers
         private Utils.ApiIntegration api = new Utils.ApiIntegration();
         private string totalPages = "";
         private string currentPage = "1";
+        private string searchKeyword = "";
 
-        public ActionResult Index(string pageNumber)
+        public ActionResult Index(string pageNumber, string keyword)
         {
+            Cache cache = new Cache();
+
+            if (cache["keyword"] == null)
+            {
+                cache["keyword"] = "";
+            }
+
             if (!string.IsNullOrEmpty(pageNumber))
             {
                 currentPage = pageNumber;
             }
 
-            JObject products = api.GetProducts(currentPage);
+            JObject products = new JObject();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                products = api.GetProducts(currentPage);
+            }
+            else
+            {
+                if (cache["keyword"].ToString() != keyword)
+                {
+                    cache["keyword"] = keyword;
+                    searchKeyword = keyword;
+                }
+                products = api.GetProducts(currentPage, searchKeyword);
+            }
+
             if(products == null)
             {
                 return RedirectToAction("Home", "Error");
@@ -37,7 +61,8 @@ namespace ProductApp.Controllers
             HomeViewModel model = new HomeViewModel {
                 products = productsList,
                 pagesCount = int.Parse(totalPages),
-                pageNumber = int.Parse(currentPage)
+                pageNumber = int.Parse(currentPage),
+                keyword = searchKeyword
             };
 
             return View(model);
