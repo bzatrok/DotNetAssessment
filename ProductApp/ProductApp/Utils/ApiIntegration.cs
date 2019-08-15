@@ -62,7 +62,7 @@ namespace ProductApp.Utils
                     {
                         SKU = product["sku"].ToString(),
                         Name = product["name"].ToString(),
-                        Thumbnail = product["images"][1]["href"].ToString(),
+                        Thumbnail = product["mediumImage"].ToString(),
                         RegularPrice = decimal.Parse(product["regularPrice"].ToString()),
                         SalePrice = decimal.Parse(product["salePrice"].ToString())
                     });
