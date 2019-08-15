@@ -14,8 +14,9 @@ namespace ProductApp.Utils
         /// <summary>
         /// Gets all products from the api
         /// </summary>
+        /// <param name="pageNumber">The number of the currently displayed page.</param>
         /// <returns> A JSON object with api response. </returns>
-        JObject GetProducts();
+        JObject GetProducts(string pageNumber);
 
         /// <summary>
         /// Gets the count of the pages with product results

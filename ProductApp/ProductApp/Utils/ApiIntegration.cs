@@ -20,13 +20,13 @@ namespace ProductApp.Utils
         }
 
         /// <inheritdoc/>
-        public JObject GetProducts()
+        public JObject GetProducts(string pageNumber)
         {
             using (var client = new HttpClient())
             {
-                // Working query: https://api.bestbuy.com/v1/products?apiKey={apiKey}&format=json
+                // Working query: https://api.bestbuy.com/v1/products?apiKey={apiKey}&page={pageNumber}&format=json
 
-                string baseAddress = $"https://api.bestbuy.com/v1/products?apiKey={apiKey}&format=json";
+                string baseAddress = $"https://api.bestbuy.com/v1/products?apiKey={apiKey}&page={pageNumber}&format=json";
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

@@ -25,7 +25,7 @@ namespace ProductApp.Controllers
                 currentPage = pageNumber;
             }
 
-            JObject products = api.GetProducts();
+            JObject products = api.GetProducts(currentPage);
             if(products == null)
             {
                 return RedirectToAction("Home", "Error");

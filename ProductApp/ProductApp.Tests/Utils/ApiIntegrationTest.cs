@@ -17,7 +17,7 @@ namespace ProductApp.Tests.Utils
         {
             ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
 
-            JObject products = api.GetProducts();
+            JObject products = api.GetProducts("1");
 
             Assert.IsNotNull(products);
             Assert.IsInstanceOfType(products, typeof(JObject));
@@ -31,7 +31,7 @@ namespace ProductApp.Tests.Utils
         {
             ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
 
-            JObject products = api.GetProducts();
+            JObject products = api.GetProducts("1");
             string productsCount = api.GetProductPagesCount(products);
 
             Assert.IsNotNull(productsCount);
@@ -46,7 +46,7 @@ namespace ProductApp.Tests.Utils
         {
             ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
 
-            JObject products = api.GetProducts();
+            JObject products = api.GetProducts("1");
             List<ProductsModel> productsList = api.CastProducts(products);
 
             Assert.IsNotNull(productsList);
