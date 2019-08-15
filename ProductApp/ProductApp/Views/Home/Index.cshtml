@@ -28,25 +28,34 @@
     </ul>
 </div>
 
-<div class="pagination">
-    <a href="#" class="previous">&laquo;</a>
-    @for (var i = 1; i < Model.pagesCount + 1; i++)
-    {
-        if (Model.pageNumber == i)
+<div class="pagination-holder clearfix">
+    <div id="light-pagination" class="pagination light-theme simple-pagination">
+        <a href="#" class="previous">&laquo;</a>
+        @for (var i = 1; i < Model.pagesCount + 1; i++)
         {
-            <a href="#" class="active">@i</a>
+            if (Model.pageNumber == i)
+            {
+                <a href="#" class="page-link active">@i</a>
+            }
+            else
+            {
+                <a href="#" class="page-link">@i</a>
+            }
         }
-        else
-        {
-            <a href="#">@i</a>
-        }
-    }
-    <a href="#" class="next">&raquo;</a>
+        <a href="#" class="next">&raquo;</a>
+    </div>
 </div>
 
 <script src="@Url.Content("~/Scripts/jquery-3.3.1.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.simplePagination.js")" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        
+        $.noConflict();
+
+        $("#light-pagination").pagination({
+            pages: @Model.pagesCount,
+            displayedPages: 8,
+            cssStyle: 'light-theme'
+        });
     });
 </script>

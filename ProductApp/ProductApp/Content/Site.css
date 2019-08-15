@@ -24,6 +24,7 @@ textarea {
 }
 
 /* pagination styling */
+/*
 .pagination {
     display: inline-block;
 }
@@ -46,3 +47,4 @@ textarea {
 .pagination a:hover:not(.active) {
     background-color: #ddd;
 }
+    */
