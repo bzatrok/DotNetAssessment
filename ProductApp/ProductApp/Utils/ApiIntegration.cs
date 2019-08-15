@@ -50,12 +50,6 @@ namespace ProductApp.Utils
         }
 
         /// <inheritdoc/>
-        public string GetCurrentPageNumber(JObject products)
-        {
-            return products["currentPage"].ToString();
-        }
-
-        /// <inheritdoc/>
         public List<ProductsModel> CastProducts(JObject products)
         {
             List<ProductsModel> productsList = new List<ProductsModel>();

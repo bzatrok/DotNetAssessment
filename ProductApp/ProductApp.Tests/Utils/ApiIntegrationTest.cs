@@ -39,21 +39,6 @@ namespace ProductApp.Tests.Utils
         }
 
         /// <summary>
-        /// Test product pages count.
-        ///</summary>
-        [TestMethod]
-        public void TestGetCurrentPageNumber()
-        {
-            ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
-
-            JObject products = api.GetProducts();
-            string currentPage = api.GetCurrentPageNumber(products);
-
-            Assert.IsNotNull(currentPage);
-            Assert.IsInstanceOfType(currentPage, typeof(string));
-        }
-
-        /// <summary>
         /// Test products json object casting to list of ProductsModel objects.
         ///</summary>
         [TestMethod]

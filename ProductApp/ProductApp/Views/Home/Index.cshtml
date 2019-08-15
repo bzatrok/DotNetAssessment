@@ -30,7 +30,7 @@
 
 <div class="pagination-holder clearfix">
     <div id="light-pagination" class="pagination light-theme simple-pagination">
-        <a href="#" class="previous">&laquo;</a>
+        <a class="previous">&laquo;</a>
         @for (var i = 1; i < Model.pagesCount + 1; i++)
         {
             if (Model.pageNumber == i)
@@ -42,7 +42,7 @@
                 <a href="#" class="page-link">@i</a>
             }
         }
-        <a href="#" class="next">&raquo;</a>
+        <a class="next">&raquo;</a>
     </div>
 </div>
 
@@ -54,7 +54,9 @@
 
         $("#light-pagination").pagination({
             pages: @Model.pagesCount,
+            hrefTextPrefix: "/home/index/",
             displayedPages: 8,
+            currentPage: @Model.pageNumber,
             cssStyle: 'light-theme'
         });
     });
