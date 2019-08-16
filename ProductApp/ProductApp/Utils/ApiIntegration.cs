@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http;
@@ -13,11 +14,11 @@ namespace ProductApp.Utils
 {
     public class ApiIntegration : IApiIntegration
     {
-        private readonly string apiKey = "ExFNlAkCTKUdHusuItIv7oA4";
+        private string apiKey = "";
 
         public ApiIntegration()
         {
-
+            apiKey = ConfigurationManager.AppSettings["ApiKey"];
         }
 
         /// <inheritdoc/>
