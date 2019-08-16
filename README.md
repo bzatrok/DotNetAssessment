@@ -31,8 +31,7 @@ We would like to have a small website that consists of two screens.
 	* Number of reviews of the product by customers.
 	* Review average score.
 	* Product Description.
-	* A horizontal grid of 3 related products.
-	* A horizontal grid of 3 accessories.
+	* A horizontal grid of 3 products that are frequently purchased together with this product. (see "frequentlyPurchasedWith" property in product details)
 
 ## Where do I start?
 
