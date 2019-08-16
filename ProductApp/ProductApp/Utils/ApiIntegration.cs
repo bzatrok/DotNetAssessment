@@ -125,6 +125,18 @@ namespace ProductApp.Utils
         /// <inheritdoc/>
         public SingleProductModel CastProduct(JObject product)
         {
+            string reviewCount = product["customerReviewCount"].ToString();
+            if(string.IsNullOrEmpty(reviewCount))
+            {
+                reviewCount = "0";
+            }
+
+            string averageScore = product["customerReviewAverage"].ToString();
+            if(string.IsNullOrEmpty(averageScore))
+            {
+                averageScore = "0";
+            }
+
             SingleProductModel castedProduct = new SingleProductModel
             {
                 SKU = product["sku"].ToString(),
@@ -132,12 +144,26 @@ namespace ProductApp.Utils
                 Image = product["largeImage"].ToString(),
                 RegularPrice = decimal.Parse(product["regularPrice"].ToString()),
                 SalePrice = decimal.Parse(product["salePrice"].ToString()),
-                ReviewCount = int.Parse(product["customerReviewCount"].ToString()),
-                AverageReviewScore = float.Parse(product["customerReviewAverage"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
+                ReviewCount = int.Parse(reviewCount),
+                AverageReviewScore = float.Parse(averageScore, CultureInfo.InvariantCulture.NumberFormat),
                 Description = product["longDescription"].ToString()
             };
 
             return castedProduct;
+
+            /*
+            string SKU = product["sku"].ToString();
+            string Name = product["name"].ToString();
+            string Image = product["largeImage"].ToString();
+            decimal RegularPrice = decimal.Parse(product["regularPrice"].ToString());
+            decimal SalePrice = decimal.Parse(product["salePrice"].ToString());
+            int ReviewCount = int.Parse(reviewCount);
+            float AverageReviewScore = float.Parse(averageScore, CultureInfo.InvariantCulture.NumberFormat);
+            string Description = product["longDescription"].ToString();
+
+            return new SingleProductModel();
+            */
+
         }
     }
 }

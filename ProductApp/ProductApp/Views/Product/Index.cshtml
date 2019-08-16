@@ -6,33 +6,40 @@
 <h1>@ViewBag.Title</h1>
 
 <div id="productPage">
-    <img src="@Model.product.Image" alt="Product image" class="productPageImage" />
-    <p class="productPageTitle">Title: @Model.product.Name</p>
+    <div id="productPageMainSection">
+        <img src="@Model.product.Image" alt="Product image" class="productPageImage" />
+        <p class="productPageTitle">Title: @Model.product.Name</p>
 
-    @if(@Model.product.Description.Length > 0)
-    {
-        <p class="productPageDescription">Description: @Model.product.Description</p>
-    }
-    else 
-    {
-        <p class="productPageDescription">Description: This product does not have a description yet.</p>
-    }
+        @if(@Model.product.Description.Length > 0)
+        {
+            <p class="productPageDescription">Description: @Model.product.Description</p>
+        }
+        else 
+        {
+            <p class="productPageDescription">Description: This product does not have a description yet.</p>
+        }
+    </div>
 
+    <div id="productPageSecondSection">
+        <div id="priceSection">
+            @{
+                bool sale = (@Model.product.RegularPrice != @Model.product.SalePrice);
+            }
 
-    @{
-        string priceClass = (@Model.product.RegularPrice == @Model.product.SalePrice) ? "regularPrice" : "discountPrice";
-    }
+            @if (sale)
+            {
+                <p class="discountPrice">Price: <span class="oldPrice">@Model.product.RegularPrice</span></p>
+                <p class="newPrice">New Price: @Model.product.SalePrice</p>
+            }
+            else
+            {
+                <p class="productPagePrice">Price: @Model.product.RegularPrice</p>
+            }
+        </div>
 
-    @if (priceClass == "discountPrice")
-    {
-        <p class="@priceClass">Price: @Model.product.RegularPrice</p>
-        <p class="newPrice">New Price: @Model.product.SalePrice</p>
-    }
-    else
-    {
-        <p class="@priceClass">Price: @Model.product.RegularPrice</p>
-    }
-
-    <p class="productReviewsCount">Number of Reviews: @Model.product.ReviewCount</p>
-    <p class="productAverageScore">Average Review Score: @Model.product.AverageReviewScore</p>
+        <div id="reviewsSection">
+            <p class="productReviewsCount">Number of Reviews: @Model.product.ReviewCount</p>
+            <p class="productAverageScore">Average Review Score: @Model.product.AverageReviewScore</p>
+        </div>
+    </div>
 </div>

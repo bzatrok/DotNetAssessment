@@ -38,12 +38,47 @@ textarea {
 .productThumb {
     display: block;
     float: left;
-    border: 2px;
-    border-color: grey;
     margin-right: 10px;
+    border: 1px solid #021a40;
 }
 
 .productName {
     font-weight: bold;
+    color: green;
 }
 
+
+/* Styling product page */
+#productPageMainSection {
+    display: inline-block;
+    width: 100%;
+}
+
+.productPageImage {
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+#productPageSecondSection {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#priceSection {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+#reviewsSection {
+    display: block;
+    float: left;
+    width: 50%;
+}
+
+.oldPrice {
+    text-decoration: line-through;
+    color: red;
+}
