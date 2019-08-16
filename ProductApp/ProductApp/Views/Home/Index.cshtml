@@ -5,6 +5,8 @@
 
 <h1>@ViewBag.Title</h1>
 
+<hr />
+
 <div id="searchBar">
     @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "searchForm" }))
     {
@@ -20,6 +22,8 @@
     }
 </div>
 
+<hr />
+
 <div id="productsPage">
     <ul id="productsList">
         @foreach (var product in Model.products)
@@ -29,18 +33,23 @@
                 <p class="productName">@product.Name</p>
 
                 @{
-                    string priceClass = (product.RegularPrice == product.SalePrice) ? "regularPrice" : "discountPrice";
+                    bool sale = (@product.RegularPrice != @product.SalePrice);
                 }
 
-                <p class="@priceClass">Price: @product.RegularPrice</p>
-
-                @if (priceClass == "discountPrice")
+                @if (sale)
                 {
-                    <p class="newPrice">New Price: @product.SalePrice</p>
+                    <p class="discountPrice"><b>Price: <span class="oldPrice">@product.RegularPrice</span></b></p>
+                    <p class="newPrice"><b>New Price: <span class="greenText">@product.SalePrice</span></b></p>
+                }
+                else
+                {
+                    <p class="productPagePrice"><b>Price: <span class="greenText">@product.RegularPrice</span></b></p>
                 }
 
                 <a href="/product/index?id=@product.SKU" class="viewProduct">View Product</a>
             </li>
+
+            <hr />
         }
     </ul>
 </div>

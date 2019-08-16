@@ -29,6 +29,14 @@ h1 {
     text-align: center;
 }
 
+footer {
+    text-align: center;
+}
+
+.pagination-holder {
+    text-align: center;
+}
+
 
 /* Styling the front page */
 #productsPage {
@@ -44,19 +52,22 @@ h1 {
 
 #productsList {
     list-style: none;
+    padding: 0;
 }
 
 .productItem {
     display: inline-block;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 40px;
 }
 
 .productThumb {
     display: block;
     float: left;
     margin-right: 10px;
-    border: 1px solid #021a40;
+    border: 2px solid lightslategray;
 }
 
 .productName {
@@ -66,6 +77,10 @@ h1 {
 
 
 /* Styling product page */
+#productPage {
+    margin-left: 40px;
+}
+
 #productPageMainSection {
     display: inline-block;
     width: 100%;
@@ -75,6 +90,7 @@ h1 {
     display: block;
     float: left;
     margin-right: 20px;
+    border: 2px solid lightslategray;
 }
 
 #productPageSecondSection {
