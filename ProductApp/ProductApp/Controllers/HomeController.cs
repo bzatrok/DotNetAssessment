@@ -22,13 +22,6 @@ namespace ProductApp.Controllers
 
         public ActionResult Index(string pageNumber, string keyword)
         {
-            Cache cache = new Cache();
-
-            if (cache["keyword"] == null)
-            {
-                cache["keyword"] = "";
-            }
-
             if (!string.IsNullOrEmpty(pageNumber))
             {
                 currentPage = pageNumber;
@@ -42,11 +35,7 @@ namespace ProductApp.Controllers
             }
             else
             {
-                if (cache["keyword"].ToString() != keyword)
-                {
-                    cache["keyword"] = keyword;
-                    searchKeyword = keyword;
-                }
+                searchKeyword = keyword;
                 products = api.GetProducts(currentPage, searchKeyword);
             }
 

@@ -9,7 +9,7 @@
     @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { id = "searchForm" }))
     {
     <p>
-        @Html.Hidden("pageNumber", "1")
+        <input type="hidden" name="pageNumber" value="1" />
         Keyword: @Html.TextBox("keyword")<br />
         <input type="submit" value="Search" />
     </p>
@@ -65,8 +65,8 @@
 
         $("#light-pagination").pagination({
             pages: @Model.pagesCount,
-            hrefTextPrefix: "/home/index/",
-            hrefTextSuffix: "/@Model.keyword",
+            hrefTextPrefix: "/home/index?pageNumber=",
+            hrefTextSuffix: "&keyword=@Model.keyword",
             displayedPages: 8,
             currentPage: @Model.pageNumber,
             cssStyle: 'light-theme'

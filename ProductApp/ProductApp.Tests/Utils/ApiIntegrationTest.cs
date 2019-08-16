@@ -21,6 +21,10 @@ namespace ProductApp.Tests.Utils
 
             Assert.IsNotNull(products);
             Assert.IsInstanceOfType(products, typeof(JObject));
+
+            products = api.GetProducts("1", "ab");
+            Assert.IsNotNull(products);
+            Assert.IsInstanceOfType(products, typeof(JObject));
         }
 
         /// <summary>
