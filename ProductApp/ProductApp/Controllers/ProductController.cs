@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
 using ProductApp.Models;
+using ProductApp.ViewModels;
 
 namespace ProductApp.Controllers
 {
@@ -24,9 +25,12 @@ namespace ProductApp.Controllers
 
             SingleProductModel product = api.CastProduct(productData);
 
-            //SingleProductModel model = new SingleProductModel();
+            ProductViewModel model = new ProductViewModel
+            {
+                product = product
+            };
 
-            return View();
+            return View(model);
         }
     }
 }

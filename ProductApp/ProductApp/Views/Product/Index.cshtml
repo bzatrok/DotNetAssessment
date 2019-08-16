@@ -1,6 +1,38 @@
-﻿@model ProductApp.Models.SingleProductModel
+﻿@model ProductApp.ViewModels.ProductViewModel
 @{
     ViewBag.Title = "Product Page";
 }
 
-<h1>Product</h1>
+<h1>@ViewBag.Title</h1>
+
+<div id="productPage">
+    <img src="@Model.product.Image" alt="Product image" class="productPageImage" />
+    <p class="productPageTitle">Title: @Model.product.Name</p>
+
+    @if(@Model.product.Description.Length > 0)
+    {
+        <p class="productPageDescription">Description: @Model.product.Description</p>
+    }
+    else 
+    {
+        <p class="productPageDescription">Description: This product does not have a description yet.</p>
+    }
+
+
+    @{
+        string priceClass = (@Model.product.RegularPrice == @Model.product.SalePrice) ? "regularPrice" : "discountPrice";
+    }
+
+    @if (priceClass == "discountPrice")
+    {
+        <p class="@priceClass">Price: @Model.product.RegularPrice</p>
+        <p class="newPrice">New Price: @Model.product.SalePrice</p>
+    }
+    else
+    {
+        <p class="@priceClass">Price: @Model.product.RegularPrice</p>
+    }
+
+    <p class="productReviewsCount">Number of Reviews: @Model.product.ReviewCount</p>
+    <p class="productAverageScore">Average Review Score: @Model.product.AverageReviewScore</p>
+</div>

@@ -28,6 +28,20 @@ namespace ProductApp.Tests.Utils
         }
 
         /// <summary>
+        /// Test product by id response from API.
+        ///</summary>
+        [TestMethod]
+        public void TestGetProduct()
+        {
+            ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
+
+            JObject product = api.GetProductById("1000006");
+
+            Assert.IsNotNull(product);
+            Assert.IsInstanceOfType(product, typeof(JObject));
+        }
+
+        /// <summary>
         /// Test product pages count.
         ///</summary>
         [TestMethod]
@@ -55,6 +69,21 @@ namespace ProductApp.Tests.Utils
 
             Assert.IsNotNull(productsList);
             Assert.IsInstanceOfType(productsList, typeof(List<ProductsModel>));
+        }
+
+        /// <summary>
+        /// Test product json object casting to a SingleProductModel object.
+        ///</summary>
+        [TestMethod]
+        public void TestCastProduct()
+        {
+            ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
+
+            JObject productData = api.GetProductById("1000006");
+            SingleProductModel product = api.CastProduct(productData);
+
+            Assert.IsNotNull(product);
+            Assert.IsInstanceOfType(product, typeof(SingleProductModel));
         }
     }
 }
