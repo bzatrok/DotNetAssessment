@@ -1,6 +1,6 @@
 ﻿@model ProductApp.ViewModels.HomeViewModel
 @{
-    ViewBag.Title = "Products Page";
+    ViewBag.Title = "Catalogue Page";
 }
 
 <h1>@ViewBag.Title</h1>
@@ -10,9 +10,12 @@
     {
     <p>
         <input type="hidden" name="pageNumber" value="1" />
-        Keyword: @Html.TextBox("keyword")<br />
-        <input type="submit" value="Search" />
-        <input type="button" value="Clear" id="clearForm">
+        <b><span class="blueText">Keyword:</span></b> @Html.TextBox("keyword", null, new { placeholder = "Search by keyword..."}) <br />
+
+        <div id="searchButtons">
+            <input type="submit" value="Search" />
+            <input type="button" value="Clear" id="clearForm">
+        </div>
     </p>
     }
 </div>

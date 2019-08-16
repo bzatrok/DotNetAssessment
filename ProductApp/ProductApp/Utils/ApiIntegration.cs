@@ -50,9 +50,9 @@ namespace ProductApp.Utils
         {
             using (var client = new HttpClient())
             {
-                // Working query: https://api.bestbuy.com/v1/products((search={keyword}))?apiKey=ExFNlAkCTKUdHusuItIv7oA4&page={pageNumber}&format=json
+                // Working query: https://api.bestbuy.com/v1/products((search={keyword}))?apiKey={apiKey}&page={pageNumber}&format=json
 
-                string baseAddress = $"https://api.bestbuy.com/v1/products((search={keyword}))?apiKey=ExFNlAkCTKUdHusuItIv7oA4&page={pageNumber}&format=json";
+                string baseAddress = $"https://api.bestbuy.com/v1/products((search={keyword}))?apiKey={apiKey}&page={pageNumber}&format=json";
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

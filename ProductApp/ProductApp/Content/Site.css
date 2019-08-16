@@ -1,12 +1,14 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: lightslategray;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: white;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -23,8 +25,23 @@ textarea {
     max-width: 280px;
 }
 
+h1 {
+    text-align: center;
+}
+
 
 /* Styling the front page */
+#productsPage {
+    margin-top: 40px;
+}
+
+#searchBar {
+    padding-left: 40px;
+}
+#searchButtons {
+    margin-top: 15px;
+}
+
 #productsList {
     list-style: none;
 }
@@ -81,4 +98,14 @@ textarea {
 .oldPrice {
     text-decoration: line-through;
     color: red;
+}
+
+.blueText {
+    color: royalblue;
+    font-weight: bold;
+}
+
+.greenText {
+    color: green;
+    font-weight: bold;
 }
