@@ -44,4 +44,48 @@
             <p class="productAverageScore">Average Review Score: @Model.product.AverageReviewScore</p>
         </div>
     </div>
+
+    <hr />
+
+    <div id="relatedProductsSection">
+        <h3>Related Products</h3>
+        <hr />
+
+        @{ 
+            bool relatedProducts = (Model.relatedProducts.Any());
+        }
+
+        @if(relatedProducts)
+        {
+            <ul id="relatedProductsList">
+                @foreach(var product in Model.relatedProducts)
+                {
+                <li class="relatedProductItem">
+                    <img class="relatedProductThumb" src="@product.Image" alt="Product Thumbnail" width="150" height="150">
+                    <p class="productName">@product.Name</p>
+
+                    @{
+                        bool relatedProductSale = (@product.RegularPrice != @product.SalePrice);
+                    }
+
+                    @if (relatedProductSale)
+                    {
+                        <p class="discountPrice"><b>Price: <span class="oldPrice">@product.RegularPrice</span></b></p>
+                        <p class="newPrice"><b>New Price: <span class="greenText">@product.SalePrice</span></b></p>
+                    }
+                    else
+                    {
+                        <p class="productPagePrice"><b>Price: <span class="greenText">@product.RegularPrice</span></b></p>
+                    }
+
+                    <a href="/product/index?id=@product.SKU" class="viewProduct">View Product</a>
+                </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="noRelatedProducts">There are no related products to this item.</p>
+        }
+    </div>
 </div>

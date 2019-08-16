@@ -9,6 +9,7 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
+    min-width: 900px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -77,10 +78,6 @@ footer {
 
 
 /* Styling product page */
-#productPage {
-    margin-left: 40px;
-}
-
 #productPageMainSection {
     display: inline-block;
     width: 100%;
@@ -109,6 +106,29 @@ footer {
     display: block;
     float: left;
     width: 50%;
+}
+
+#relatedProductsList {
+    padding: 0;
+    display: table;
+}
+
+.relatedProductItem {
+    display: block;
+    float: left;
+    width: 33%;
+}
+
+.relatedProductThumb {
+    display: block;
+    float: left;
+    margin-right: 10px;
+    border: 2px solid lightslategray;
+    margin-bottom: 20px;
+}
+
+.noRelatedProducts {
+    text-align: center;
 }
 
 .oldPrice {
