@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -68,6 +69,32 @@ namespace ProductApp.Utils
         }
 
         /// <inheritdoc/>
+        public JObject GetProductById(string id)
+        {
+            using (var client = new HttpClient())
+            {
+                // Working query: https://api.bestbuy.com/v1/products(sku={id})?apiKey=ExFNlAkCTKUdHusuItIv7oA4&format=json
+                // https://api.bestbuy.com/v1/products/{id}.json?apiKey=ExFNlAkCTKUdHusuItIv7oA4&format=json
+
+                //string baseAddress = $"https://api.bestbuy.com/v1/products(sku={id})?apiKey=ExFNlAkCTKUdHusuItIv7oA4&format=json";
+                string baseAddress = $"https://api.bestbuy.com/v1/products/{id}.json?apiKey=ExFNlAkCTKUdHusuItIv7oA4&format=json";
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = client.GetAsync(baseAddress).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    return JsonConvert.DeserializeObject<JObject>(result);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        /// <inheritdoc/>
         public string GetProductPagesCount(JObject products)
         {
             return products["totalPages"].ToString();
@@ -93,6 +120,24 @@ namespace ProductApp.Utils
             }
 
             return productsList;
+        }
+
+        /// <inheritdoc/>
+        public SingleProductModel CastProduct(JObject product)
+        {
+            SingleProductModel castedProduct = new SingleProductModel
+            {
+                SKU = product["sku"].ToString(),
+                Name = product["name"].ToString(),
+                Image = product["largeImage"].ToString(),
+                RegularPrice = decimal.Parse(product["regularPrice"].ToString()),
+                SalePrice = decimal.Parse(product["salePrice"].ToString()),
+                ReviewCount = int.Parse(product["customerReviewCount"].ToString()),
+                AverageReviewScore = float.Parse(product["customerReviewAverage"].ToString(), CultureInfo.InvariantCulture.NumberFormat),
+                Description = product["longDescription"].ToString()
+            };
+
+            return castedProduct;
         }
     }
 }

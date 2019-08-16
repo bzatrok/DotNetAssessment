@@ -15,7 +15,7 @@ namespace ProductApp
 
             routes.MapRoute(
                 name: "Product",
-                url: "product/{id}",
+                url: "product/index/{id}",
                 defaults: new { controller = "Product", action = "Index", id = UrlParameter.Optional}
                 );
 

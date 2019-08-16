@@ -1,22 +1,32 @@
-﻿using ProductApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json.Linq;
+using ProductApp.Models;
 
 namespace ProductApp.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
+        private Utils.ApiIntegration api = new Utils.ApiIntegration();
+
         public ActionResult Index(string id)
         {
             var validatedID = Server.HtmlEncode(id);
 
-            SingleProductModel model = new SingleProductModel();
+            JObject productData = api.GetProductById(id);
+            if (productData == null)
+            {
+                return RedirectToAction("Home", "Error");
+            }
 
-            return View(model);
+            SingleProductModel product = api.CastProduct(productData);
+
+            //SingleProductModel model = new SingleProductModel();
+
+            return View();
         }
     }
 }

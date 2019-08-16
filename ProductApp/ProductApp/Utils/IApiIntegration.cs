@@ -27,6 +27,13 @@ namespace ProductApp.Utils
         JObject GetProducts(string pageNumber, string keyword);
 
         /// <summary>
+        /// Gets product data by id.
+        /// </summary>
+        /// <param name="id">The SKU value of the product.</param>
+        /// <returns> A JSON object with api response. </returns>
+        JObject GetProductById(string id);
+
+        /// <summary>
         /// Gets the count of the pages with product results.
         /// </summary>
         /// <param name="products">A JSON object with api response.</param>
@@ -39,5 +46,12 @@ namespace ProductApp.Utils
         /// <param name="products">A JSON object with api response.</param>
         /// <returns> List with ProductsModel objects. </returns>
         List<ProductsModel> CastProducts(JObject products);
+
+        /// <summary>
+        /// Casts product data into a product object.
+        /// </summary>
+        /// <param name="product">A JSON object with api response.</param>
+        /// <returns> Product model object. </returns>
+        SingleProductModel CastProduct(JObject product);
     }
 }
