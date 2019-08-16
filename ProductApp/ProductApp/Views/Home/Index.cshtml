@@ -12,6 +12,7 @@
         <input type="hidden" name="pageNumber" value="1" />
         Keyword: @Html.TextBox("keyword")<br />
         <input type="submit" value="Search" />
+        <input type="button" value="Clear" id="clearForm">
     </p>
     }
 </div>
@@ -70,6 +71,10 @@
             displayedPages: 8,
             currentPage: @Model.pageNumber,
             cssStyle: 'light-theme'
+        });
+
+        $("#clearForm").click(function(){
+            window.location = "/Home/Index";
         });
     });
 </script>
