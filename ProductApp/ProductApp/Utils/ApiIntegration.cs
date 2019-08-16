@@ -102,6 +102,19 @@ namespace ProductApp.Utils
         }
 
         /// <inheritdoc/>
+        public List<string> GetRelatedProductsID(JObject product)
+        {
+            List<string> productIDs = new List<string>();
+
+            foreach (JObject productID in product["frequentlyPurchasedWith"] as JArray)
+            {
+                productIDs.Add(productID["sku"].ToString());
+            }
+
+            return productIDs;
+        }
+
+        /// <inheritdoc/>
         public List<ProductsModel> CastProducts(JObject products)
         {
             List<ProductsModel> productsList = new List<ProductsModel>();

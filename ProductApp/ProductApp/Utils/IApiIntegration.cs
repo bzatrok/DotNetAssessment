@@ -41,6 +41,13 @@ namespace ProductApp.Utils
         string GetProductPagesCount(JObject products);
 
         /// <summary>
+        /// Gets the related products IDs.
+        /// </summary>
+        /// <param name="product">A JSON object with api response.</param>
+        /// <returns>A list of string values representing related product IDs. </returns>
+        List<string> GetRelatedProductsID(JObject product);
+
+        /// <summary>
         /// Casts products into a list of ProductsModel objects.
         /// </summary>
         /// <param name="products">A JSON object with api response.</param>

@@ -57,6 +57,21 @@ namespace ProductApp.Tests.Utils
         }
 
         /// <summary>
+        /// Test retrieval of related product ids.
+        ///</summary>
+        [TestMethod]
+        public void TestGetRelatedProductsIDs()
+        {
+            ProductApp.Utils.ApiIntegration api = new ProductApp.Utils.ApiIntegration();
+
+            JObject product = api.GetProductById("9433419");
+            List<string> productIDs = api.GetRelatedProductsID(product);
+
+            Assert.IsNotNull(productIDs);
+            Assert.IsInstanceOfType(productIDs, typeof(List<string>));
+        }
+
+        /// <summary>
         /// Test products json object casting to list of ProductsModel objects.
         ///</summary>
         [TestMethod]
