@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProductApp.Models;
@@ -176,20 +173,6 @@ namespace ProductApp.Utils
             };
 
             return castedProduct;
-
-            /*
-            string SKU = product["sku"].ToString();
-            string Name = product["name"].ToString();
-            string Image = product["largeImage"].ToString();
-            decimal RegularPrice = decimal.Parse(product["regularPrice"].ToString());
-            decimal SalePrice = decimal.Parse(product["salePrice"].ToString());
-            int ReviewCount = int.Parse(reviewCount);
-            float AverageReviewScore = float.Parse(averageScore, CultureInfo.InvariantCulture.NumberFormat);
-            string Description = product["longDescription"].ToString();
-
-            return new SingleProductModel();
-            */
-
         }
     }
 }
