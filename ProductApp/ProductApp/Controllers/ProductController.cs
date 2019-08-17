@@ -15,8 +15,6 @@ namespace ProductApp.Controllers
 
         public ActionResult Index(string id)
         {
-            var validatedID = Server.HtmlEncode(id);
-
             JObject productData = api.GetProductById(id);
             if (productData == null)
             {

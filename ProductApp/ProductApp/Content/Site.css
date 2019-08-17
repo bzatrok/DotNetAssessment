@@ -135,11 +135,9 @@ footer {
     font-size: 13px;
     padding: 2px 6px;
     background-image: linear-gradient(royalblue, deepskyblue);
-    color: ButtonText;
     border-style: solid;
     border-width: 2px;
     color: white;
-    text-decoration: none;
     border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
 }
 
