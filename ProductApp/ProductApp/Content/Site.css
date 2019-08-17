@@ -156,6 +156,11 @@ footer {
     text-decoration: none;
 }
 
+.productReviewsCount,
+.productAverageScore {
+    margin-left: 5px;
+}
+
 .noRelatedProducts {
     text-align: center;
 }
