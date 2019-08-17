@@ -9,7 +9,7 @@
     padding-left: 15px;
     padding-right: 15px;
     background-color: white;
-    min-width: 900px;
+    min-width: 1000px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -26,7 +26,7 @@ textarea {
     max-width: 280px;
 }
 
-h1 {
+h1, h3 {
     text-align: center;
 }
 
@@ -111,6 +111,7 @@ footer {
 #relatedProductsList {
     padding: 0;
     display: table;
+    width: 100%;
 }
 
 .relatedProductItem {
@@ -125,6 +126,34 @@ footer {
     margin-right: 10px;
     border: 2px solid lightslategray;
     margin-bottom: 20px;
+}
+
+.viewProduct {
+    text-decoration: none;
+    font: menu;
+    display: inline-block;
+    font-size: 13px;
+    padding: 2px 6px;
+    background-image: linear-gradient(royalblue, deepskyblue);
+    color: ButtonText;
+    border-style: solid;
+    border-width: 2px;
+    color: white;
+    text-decoration: none;
+    border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;
+}
+
+.viewProduct:hover {
+    border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;
+    color: white;
+    text-decoration: none;
+}
+
+.viewProduct:active,
+.viewProduct:visited,
+.viewProduct:focus {
+    color: white;
+    text-decoration: none;
 }
 
 .noRelatedProducts {
