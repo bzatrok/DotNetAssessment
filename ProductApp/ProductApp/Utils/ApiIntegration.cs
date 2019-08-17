@@ -122,12 +122,18 @@ namespace ProductApp.Utils
             JArray productsArray = products["products"] as JArray;
             foreach (JObject product in productsArray)
             {
+                string Thumbnail = product["mediumImage"].ToString();
+                if(string.IsNullOrEmpty(Thumbnail))
+                {
+                    Thumbnail = product["thumbnailImage"].ToString();
+                }
+
                 productsList.Add(
                     new ProductsModel
                     {
                         SKU = product["sku"].ToString(),
                         Name = product["name"].ToString(),
-                        Thumbnail = product["mediumImage"].ToString(),
+                        Thumbnail = Thumbnail,
                         RegularPrice = decimal.Parse(product["regularPrice"].ToString()),
                         SalePrice = decimal.Parse(product["salePrice"].ToString())
                     });
@@ -151,11 +157,17 @@ namespace ProductApp.Utils
                 averageScore = "0";
             }
 
+            string Image = product["largeImage"].ToString();
+            if (string.IsNullOrEmpty(Image))
+            {
+                Image = product["thumbnailImage"].ToString();
+            }
+
             SingleProductModel castedProduct = new SingleProductModel
             {
                 SKU = product["sku"].ToString(),
                 Name = product["name"].ToString(),
-                Image = product["largeImage"].ToString(),
+                Image = Image,
                 RegularPrice = decimal.Parse(product["regularPrice"].ToString()),
                 SalePrice = decimal.Parse(product["salePrice"].ToString()),
                 ReviewCount = int.Parse(reviewCount),
