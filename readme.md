@@ -12,7 +12,8 @@ Solution is created using VueJs and Asp.net MVC Api .
     npm run build
 
 # Features ?
-  VueJs Component based architechture 
-  Infitine scrolling
-  Typescript (strongly typed)
-  
+  1. VueJs Component based architechture 
+  2. Infitine scrolling
+  3. Typescript (strongly typed)
+  4. Promises
+  5. Asnchronous Programing 
