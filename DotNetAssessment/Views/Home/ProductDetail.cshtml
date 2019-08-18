@@ -1,0 +1,72 @@
+﻿@model DotNetAssessment.ViewModels.ProductViewModel
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid clickable" data-toggle="modal" data-target="#imageModal" src="@Model.Image" alt="@Model.Name">
+        </div>
+        <div class="col-md-8">
+            <h1>@Model.Name</h1>
+            <div class="row">
+                <div class="col">
+                    <p>@StringResources.REVIEW_COUNT: @Model.ReviewCount</p>
+                </div>
+                <div class="col">
+                    <p>@StringResources.AVERAGE_CUSTOMER_SCORE: @Model.AverageScore</p>
+                </div>
+                <div class="col text-right">
+                    <p class="@Model.PriceClass">@Model.RegularPrice</p>
+                    <p style="visibility:hidden">@Model.SalePrice</p>
+                </div>
+            </div>
+            <p>@Model.LongDescription</p>
+        </div>
+    </div>
+</div>
+
+<h2>@StringResources.ACCESSORIES</h2>
+@if (Model.Accessories != null)
+{
+    <div class="row">
+        @for (var product = 0; product < 3; product++ )
+        {
+            @Html.Partial("Product", Model.Accessories.Products[product]);
+        }
+    </div>
+}
+else
+{
+    <p>@StringResources.NO_ACCESSORIES_FOUND</p>
+}
+<h2>@StringResources.RELATED_PRODUCTS</h2>
+@if (Model.Related != null)
+{
+<div class="row">
+    @for (var product = 0; product < 3; product++)
+    {
+        @Html.Partial("Product", Model.Related.Products[product]);
+    }
+</div>
+}
+else
+{
+    <p>@StringResources.NO_RELATED_PRODUCTS_FOUND</p>
+}
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <img class="img-fluid" src="@Model.Image" alt="@Model.Name">
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

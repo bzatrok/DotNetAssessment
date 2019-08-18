@@ -1,0 +1,43 @@
+﻿@model DotNetAssessment.ViewModels.BaseViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            @Html.ActionLink(StringResources.APPLICATION_NAME, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">@Html.ActionLink(StringResources.HOME, "Index", "Home", new { @class = "nav-link" })</li>
+                </ul>
+                @using (Html.BeginForm("PostSearch", "Home", FormMethod.Post, new { @class = "form-inline my-2 my-lg-0" }))
+                {
+                    @Html.TextBoxFor(model => model.SearchText, new { @class = "form-control mr-sm-2", @type = "search", placeholder = @StringResources.SEARCH, aria_label = "Search" })
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">@StringResources.SEARCH</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>@StringResources.COPYRIGHT_NOTICE</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

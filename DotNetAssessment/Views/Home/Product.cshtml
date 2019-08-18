@@ -1,0 +1,10 @@
+﻿@model DotNetAssessment.ViewModels.ProductViewModel
+<div class="col-md-4">
+    <div class="card mb-4">
+        <img class="card-img-top" src="@Model.Thumbnail" alt="@Model.Name">
+        <div class="card-body">
+            <a href="@Url.RouteUrl("detail", new { sku = Model.Sku })">@Model.Name</a>
+            <p class="card-text">@Model.Price</p>
+        </div>
+    </div>
+</div>

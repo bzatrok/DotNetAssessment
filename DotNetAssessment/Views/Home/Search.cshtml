@@ -1,0 +1,18 @@
+﻿@model DotNetAssessment.ViewModels.ProductsViewModel
+
+<h1>@Model.Title</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model.Products)
+        {
+            @Html.Partial("Product", product);
+        }
+    </div>
+</div>
+<nav aria-label="search results">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @Model.PreviousClass"><a class="page-link" href="@Url.RouteUrl("search", new { search = Model.SearchText, page = Model.PageNumber - 1 })">@StringResources.PREVIOUS</a></li>
+        <li class="page-item active"><a class="page-link" href="#">@Model.PageNumber</a></li>
+        <li class="page-item @Model.NextClass"><a class="page-link" href="@Url.RouteUrl("search", new { search = Model.SearchText, page = Model.PageNumber + 1 })">@StringResources.NEXT</a></li>
+    </ul>
+</nav>
