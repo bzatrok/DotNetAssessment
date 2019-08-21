@@ -3,7 +3,7 @@ Assessment to test .Net developers. This is a simple project to assess how you s
 
 ## What is the test about?
 
-In order to evaluate your skills and coding style we would like you to develop a small .Net Framework webapp that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFull services. Please use .Net Framework and note .Net Core. You are free to use MVC or other design patters based on your personal preference. 
+In order to evaluate your skills and coding style we would like you to develop a small .Net Framework webapp that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFull services. Please use .Net Framework and not .Net Core. You are free to use MVC or other design patters based on your personal preference. 
 
 ## What do I need to do?
 
