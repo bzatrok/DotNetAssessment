@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+
+</head>
+<body>
+    <div>
+        <header class="w3-container w3-center w3-padding-48 w3-white">
+            <h1 class="w3-xxxlarge"><b>BEST BUY</b></h1>
+        </header>
+    </div>
+    <div class="container body-content" ng-app="myapp">
+        @RenderBody()
+        <hr />
+        @*<footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+
+
+    <script src="~/Scripts/ui-router/angular.min.js"></script>
+    <script src="~/Scripts/ui-router/ocLazyLoad.min.js"></script>
+    <script src="~/Scripts/ui-router/angular-ui-router.js"></script>
+
+    <script src="~/Scripts/ui-bootstrap-tpls.js"></script> 
+    @*<script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/angular-moment.min.js"></script>
+    <link href="~/design/style.css" rel="stylesheet" />
+    <link href="~/design/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/design/W3SchoolDesign.css" rel="stylesheet" />
+    <link href="~/design/fontawesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/Scripts/Anguler/app.js"></script>
+
+    <script src="~/Scripts/Anguler/config.js"></script>
+    <script src="~/Scripts/Anguler/Services/productSrv.js"></script>
+    <script src="~/Scripts/Anguler/productCtrl.js"></script>
+    <script src="~/Scripts/Anguler/ProductDetailsCtrl.js"></script>
+</body>
+</html>
