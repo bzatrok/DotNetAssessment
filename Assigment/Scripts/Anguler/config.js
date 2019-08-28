@@ -12,22 +12,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {//, $c
 
         .state('home', {          
             url: '/home',
-            templateUrl: '/App/Products.html'
+            templateUrl: '/App/Product/Products.html'
         })
         .state('ProductDetails', {
             url: '/ProductDetails/:id',
-            templateUrl: '/App/ProductDetails.html'
+            templateUrl: '/App/Product/ProductDetails.html'
         });
 
-        //.state('index', {
-        //    abstract: true,
-        //    url: "/index",
-        //    template:"<h1>Hello</h1>"// "Views/Product/ProductDetails.html",
-        //})
-        //.state('index.productDetails', {
-          
-        //    url: "/productDetails",
-        //    templateUrl: "'/views/Home/ProductDetils.html'",
-        //});
 }
 app.config(config);
