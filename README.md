@@ -3,7 +3,9 @@ Assessment to test .Net developers. This is a simple project to assess how you s
 
 ## What is the test about?
 
-In order to evaluate your skills and coding style we would like you to develop a small .Net Framework webapp that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFull services. Please use .Net Framework and not .Net Core. You are free to use MVC or other design patters based on your personal preference. 
+In order to evaluate your skills and coding style we would like you to develop a small .Net Framework / .Net Core webapp that consumes [Best Buy](https://developer.bestbuy.com/) API RESTFul services. You are free to use MVC or other design patters based on your personal preference. 
+
+Plus points if you build a back-end with .Net and a SPA front-end with Vue.js / Nuxt.js / React.
 
 ## What do I need to do?
 
@@ -35,7 +37,7 @@ We would like to have a small website that consists of two screens.
 
 ## Where do I start?
 
-* Get your API Key as explained within the [documentation](https://developer.bestbuy.com/get-started)
+* Get your API Key as explained within the [documentation](https://developer.bestbuy.com/)
 
 > **Step 1: Get a key**
 
@@ -63,7 +65,7 @@ If you have any issues getting the API Key, please contact us, and we will provi
 
 ## What we're looking for
 
-* Knowledge of .Net Framewok
+* Knowledge of .Net Framework / .Net Core
 * Knowledge of design patterns
 * Understanding of lightweight front-end
 * Clean and readable code, clear variable names
